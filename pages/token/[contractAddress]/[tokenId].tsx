@@ -138,7 +138,7 @@ import StripeBuyButton from "../[contractAddress]/StripeBuyButton";
       appearance,
     }
     const onClick = async () => {
-      const resp = await fetch("/api/stripe-intent", {
+      const resp = await fetch("/app/api/stripe-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
