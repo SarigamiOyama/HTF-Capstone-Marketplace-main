@@ -27,13 +27,10 @@ import {
   import toastStyle from "../../../util/toastConfig";
   import {Appearance, loadStripe, StripeElementsOptions} from "@stripe/stripe-js";
   import { Elements} from "@stripe/react-stripe-js";
-  import StripebuyButton from "../[contractAddress]/StripeBuyButton"
-  import {
-    PaymentElement,
-    useElements,
-    useStripe,
-  } from "@stripe/react-stripe-js";
-import StripeBuyButton from "../[contractAddress]/StripeBuyButton";
+import { Form } from "../../../components/Form";
+  
+
+
 
   type Props = {
     nft: NFT;
@@ -138,7 +135,7 @@ import StripeBuyButton from "../[contractAddress]/StripeBuyButton";
       appearance,
     }
     const onClick = async () => {
-      const resp = await fetch("/app/api/stripe-intent", {
+      const resp = await fetch("/api/stripe-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -155,6 +152,8 @@ import StripeBuyButton from "../[contractAddress]/StripeBuyButton";
       throw 'Did you forget to add a ".env.local" file?';
     }
     const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+    
+
     return (
       <>
         <Toaster position="bottom-center" reverseOrder={false} />
@@ -357,25 +356,38 @@ import StripeBuyButton from "../[contractAddress]/StripeBuyButton";
                     <p className={styles.listingTime}>Connect Wallet for Card Payment</p>
                   </div>
                    <br/>
-                 {!clientSecret ? (
-            <button
-              className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-lg disabled:bg-gray-400 disabled:opacity-50"
-              onClick={onClick}
-              disabled={!address}
-            >
-              Buy with credit card
-            </button>
-          ) : (
-            <Elements
-              options={{
-                clientSecret,
-                appearance: { theme: "night" },
-              }}
-              stripe={stripe}
-            >
-              <StripeBuyButton/>
-            </Elements>
-          )}
+                 
+                    {address && (
+                      <> 
+                      {clientSecret ? (
+                        <Elements options={options} stripe={stripe}>
+                          { <Form /> }
+                        </Elements>
+                      ) : (
+                        <button
+                        style={{
+                          padding: "1rem",
+                          borderRadius: "10px",
+                          border: "none",
+                          backgroundColor: "white",
+                          color: "#333",
+                          cursor: "pointer",
+                          width: "100%"
+                        }}
+                        onClick={onClick}
+                        >
+                          Buy With Credit Card
+                        </button>
+                      )
+
+                      }
+                      </>
+
+                    )
+
+                    }
+              
+          
                   <div className={`${styles.listingTimeContainer} ${styles.or}`}>
                     <p className={styles.listingTime}>or</p>
                   </div>

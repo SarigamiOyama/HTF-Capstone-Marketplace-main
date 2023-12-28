@@ -58,10 +58,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       
 
-      {/* Render the navigation menu above each component */}
     
-
-      {/* Render the actual component (page) */}
       <Component {...pageProps}  />
 
       </ThirdwebProvider>
