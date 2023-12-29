@@ -3771,6 +3771,11 @@
   resolved "https://registry.npmjs.org/@thirdweb-dev/dynamic-contracts/-/dynamic-contracts-1.2.2.tgz"
   integrity sha512-0YqcaQ0NLlHNo+/tJf5xQXxor3+0C8nLokVfPT3OFe9OcPmLfSGs7xS7dZdQVwor75CqmNRse29UReU+hd4atw==
 
+"@thirdweb-dev/engine@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@thirdweb-dev/engine/-/engine-0.0.4.tgz"
+  integrity sha512-6k8fQdNYU6WRG2B/VCoiQQ8l2Gjv6lY7pHxWHq4MFDXY7WK6oq1gIPKEOtudrGipbMwTiYKpbUQPaRyCU65wRg==
+
 "@thirdweb-dev/generated-abis@^0.0.1", "@thirdweb-dev/generated-abis@0.0.1":
   version "0.0.1"
   resolved "https://registry.npmjs.org/@thirdweb-dev/generated-abis/-/generated-abis-0.0.1.tgz"
